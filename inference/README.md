@@ -4,7 +4,8 @@
 1. Download & Install Docker
 2. (Optional) Sign up for [together ai](https://www.together.ai/) account.
 3. (Optional) Download the LLama3 70B model from huggingface and run the [llama.cpp server](https://github.com/allenporter/llama-cpp-server) for hosting the LLM locally. Then provide the localhost url in `config.yml`
-
+4. `git clone [https://github.com/prabhupad26/visuo_solution](https://github.com/prabhupad26/visuo_solution.git)`
+5. `cd inference`
 
 #### Build and run the application
 1. To build the docker image, run the below cmd: `docker build -t q2sql-app-inference .`
