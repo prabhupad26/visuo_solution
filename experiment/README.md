@@ -6,6 +6,8 @@
 3. (Optional) Sign up for [together ai](https://www.together.ai/) account.
 4. (Optional) Download the LLama3 70B model from huggingface and run the [llama.cpp server](https://github.com/allenporter/llama-cpp-server) for hosting the LLM locally. Then provide the localhost url in `config.yml`
 5. Sign up for wandb.ai free account and obtain API keys (This is for experiment tracking).
+6. `git clone [https://github.com/prabhupad26/visuo_solution](https://github.com/prabhupad26/visuo_solution.git)`
+7. `cd experiment`
 
 
 #### Build and run the application
