@@ -1,0 +1,39 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.11.8",
+    "heartbeatAt": "2024-07-29T07:11:39.964803",
+    "startedAt": "2024-07-29T07:11:38.721831",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\mini-KRONOS\\OneDrive\\Documents\\visuo_solution\\experiment\\main.py",
+    "codePathLocal": "main.py",
+    "codePath": "main.py",
+    "host": "DESKTOP-74A0H7C",
+    "username": "mini-KRONOS",
+    "executable": "c:\\Users\\mini-KRONOS\\miniconda3\\envs\\lc_rag\\python.exe",
+    "cpu_count": 10,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 1733.0,
+        "min": 0.0,
+        "max": 2600.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 1733.0,
+            "min": 0.0,
+            "max": 2600.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 186.37127685546875,
+            "used": 185.92699432373047
+        }
+    },
+    "memory": {
+        "total": 15.828418731689453
+    }
+}

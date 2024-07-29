@@ -1,0 +1,8 @@
+pyyaml
+tqdm
+pandas
+wandb
+langchain
+langchain-openai
+pydantic
+fastapi

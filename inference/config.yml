@@ -1,0 +1,13 @@
+model_config:
+  # url: "http://localhost:8080/"
+  url: "https://api.together.xyz/v1"
+  temperature: 0
+  max_tokens: 512
+  # model_name: "meta-llama/Meta-Llama-3-8B-Instruct-Lite"
+  # model_name: "meta-llama/Meta-Llama-3-70B-Instruct-Lite"
+  model_name: "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+  # model_name: "meta-llama/Meta-Llama-3-70B-Instruct-Turbo"
+
+data_config:
+  base_prompt_path: "app/prompts/base.prompt"
+  sys_prompt_path: "app/prompts/system.prompt"
