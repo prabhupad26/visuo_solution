@@ -14,6 +14,8 @@
 3. To access the container for debug : 
 ``docker run -it -v C://Users//mini-KRONOS//OneDrive//Documents//visuo_solution//experiment//data:/experiment/data -e TOGETHER_API_KEY="your together ai api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment /bin/bash``
 
+Please make sure to provide the correct data path and api tokens in the commands.
+
 
 #### Some screenshots from execution results:
 
