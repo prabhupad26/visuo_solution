@@ -22,3 +22,10 @@ Sample post request payload:
   "external_knowledge": "Eligible free rate for K-12 = `Free Meal Count (K-12)` / `Enrollment (K-12)`"
 }
 ```
+#### Some inference results: 
+
+![image](https://github.com/user-attachments/assets/d86f149b-96a1-46b1-ab92-12d72f9f3690)
+
+
+
+

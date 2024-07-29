@@ -1,4 +1,4 @@
-## Visuo Test-2-SQL application
+## Visuo Text-2-SQL application
 
 The objective of this challenge was to build a text to SQL query system that accepts a natural language question and responds with a valid SQL query that should help in answering the question in context a database with respect to which the question has been asked.
 

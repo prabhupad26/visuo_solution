@@ -13,3 +13,8 @@
 2. To run the application run : `docker run -v /path/to/bird-dataset:/experiment/data -e TOGETHER_API_KEY="your wandb api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment`
 3. To access the container for debug : 
 ``docker run -it -v C://Users//mini-KRONOS//OneDrive//Documents//visuo_solution//experiment//data:/experiment/data -e TOGETHER_API_KEY="your wandb api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment /bin/bash``
+
+
+#### Some screenshots from execution results:
+
+![image](https://github.com/user-attachments/assets/4a9b7f3b-7b81-4d3a-9f3d-8fab952d3034)
