@@ -1,19 +1,20 @@
+import argparse
 import json
 import os
-from tqdm import tqdm
-import wandb
+
 import pandas as pd
+import wandb
+import yaml
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from tqdm import tqdm
 from utils import (
-    create_models_from_json,
     build_q2sql_model,
+    create_models_from_json,
     execute_query,
     is_query_runnable,
 )
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from langchain_openai import ChatOpenAI
-import yaml
-import argparse
 
 
 class q2SQLExperiment:
@@ -59,14 +60,10 @@ class q2SQLExperiment:
             table_info_json = json.load(f)
         with open(self.query2SQL_info_path) as f:
             q2info_json = json.load(f)
-        _, self.table_infos = create_models_from_json(
-            table_info_json, self.db_info_path
-        )
+        _, self.table_infos = create_models_from_json(table_info_json, self.db_info_path)
         self.q2sql_infos = build_q2sql_model(q2info_json, self.table_infos)
 
-    def initialize_model(
-        self, url, temperature, max_tokens=512, model_name="localhost"
-    ):
+    def initialize_model(self, url, temperature, max_tokens=512, model_name="localhost"):
         if model_name == "localhost":
             self.model = ChatOpenAI(
                 temperature=temperature,
@@ -93,9 +90,7 @@ class q2SQLExperiment:
         if self.debug_num:
             self.q2sql_infos = self.q2sql_infos[: self.debug_num]
         if self.difficulty:
-            self.q2sql_infos = [
-                d for d in self.q2sql_infos if d.difficulty == self.difficulty
-            ]
+            self.q2sql_infos = [d for d in self.q2sql_infos if d.difficulty == self.difficulty]
         for idx, query_info in tqdm(
             enumerate(self.q2sql_infos),
             desc="Running inference...",
@@ -114,9 +109,7 @@ class q2SQLExperiment:
                 }
             )
 
-            db_path = (
-                f"{self.db_info_path}/{query_info.db_id}/{query_info.db_id}.sqlite"
-            )
+            db_path = f"{self.db_info_path}/{query_info.db_id}/{query_info.db_id}.sqlite"
             response = response.replace("\n", "")
 
             result = self.evaluate_response(response, query_info, db_path)
@@ -128,8 +121,7 @@ class q2SQLExperiment:
             self.ls_tp += 1
 
         if is_query_runnable(db_path, response) and (
-            execute_query(db_path, response)
-            == execute_query(db_path, query_info.query_gold)
+            execute_query(db_path, response) == execute_query(db_path, query_info.query_gold)
         ):
             self.tp += 1
             result = True
@@ -189,7 +181,5 @@ if __name__ == "__main__":
     model_config = config_data.pop("model_config")
     api_key = os.environ["TOGETHER_API_KEY"]
 
-    challenge = q2SQLExperiment(
-        **data_file_config, model_params=model_config, api_key=api_key
-    )
+    challenge = q2SQLExperiment(**data_file_config, model_params=model_config, api_key=api_key)
     challenge.run_inference()

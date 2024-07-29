@@ -1,7 +1,8 @@
 import sqlite3
-import pandas as pd
-from data import DbInfo, TableInfo, SqlInfo
 from typing import List, Optional
+
+import pandas as pd
+from data import DbInfo, SqlInfo, TableInfo
 from tqdm import tqdm
 
 
@@ -14,18 +15,11 @@ def generate_sql_schema(table_infos, db_name) -> str:
             for col_idx, col in enumerate(table_info.cols):
                 # Determine column type based on the column description or name (simplified logic)
                 col_type = "TEXT"
-                col_descr = (
-                    table_info.column_description[col_idx]
-                    if table_info.column_description
-                    else ""
-                )
+                col_descr = table_info.column_description[col_idx] if table_info.column_description else ""
                 column_definitions.append(f"{col} {col_type} {col_descr}")
 
             # Add primary key definition
-            if (
-                isinstance(table_info.primary_key, list)
-                and len(table_info.primary_key) > 1
-            ):
+            if isinstance(table_info.primary_key, list) and len(table_info.primary_key) > 1:
                 primary_keys = ", ".join([pk for pk in table_info.primary_key])
             else:
                 primary_keys = table_info.primary_key
@@ -90,10 +84,10 @@ def create_models_from_json(table_info_json, db_info_path):
                 for foreign_key in foreign_key_ids:
                     foreign_keys.add(column_names_db[foreign_key][1])
 
-            db_descr_info_path = f"{db_info_path}/{entry['db_id']}/database_description/{table_names_original[table_idx]}.csv"
-            column_descriptions, value_descriptions = get_cols_descr(
-                db_descr_info_path, column_names
+            db_descr_info_path = (
+                f"{db_info_path}/{entry['db_id']}/database_description/{table_names_original[table_idx]}.csv"
             )
+            column_descriptions, value_descriptions = get_cols_descr(db_descr_info_path, column_names)
 
             table_info = TableInfo(
                 table_name=table_names_original[table_idx],

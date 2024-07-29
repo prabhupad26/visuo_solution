@@ -1,12 +1,12 @@
-from fastapi import FastAPI
-import uvicorn
-from langchain_openai import ChatOpenAI
 import os
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
-from schemas.q2sql import q2SQLRequest, q2SQLResponse
-import yaml
 
+import uvicorn
+import yaml
+from fastapi import FastAPI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+from schemas.q2sql import q2SQLRequest, q2SQLResponse
 
 app = FastAPI()
 
@@ -17,9 +17,7 @@ def load_config(path: str):
         return yaml.safe_load(file)
 
 
-def initialize_model(
-    url, temperature, max_tokens=512, model_name="localhost", api_key=""
-):
+def initialize_model(url, temperature, max_tokens=512, model_name="localhost", api_key=""):
     if model_name == "localhost":
         model = ChatOpenAI(
             temperature=temperature,
@@ -51,9 +49,7 @@ with open(data_config["base_prompt_path"], "r") as file:
 with open(data_config["sys_prompt_path"], "r") as file:
     sys_prompt = file.read()
 
-prompt_template = ChatPromptTemplate.from_messages(
-    [("system", sys_prompt), ("user", base_prompt)]
-)
+prompt_template = ChatPromptTemplate.from_messages([("system", sys_prompt), ("user", base_prompt)])
 parser = StrOutputParser()
 chain = prompt_template | model | parser
 
