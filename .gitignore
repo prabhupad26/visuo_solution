@@ -1,6 +1,7 @@
 # Cache files :
 __pycache__
 .vscode
+wandb/
 
 # Data files :
 trash/
