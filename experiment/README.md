@@ -10,9 +10,9 @@
 
 #### Build and run the application
 1. To build the docker image run : ``docker build -t q2sql-app-experiment .``
-2. To run the application run : `docker run -v /path/to/bird-dataset:/experiment/data -e TOGETHER_API_KEY="your wandb api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment`
+2. To run the application run : `docker run -v /path/to/bird-dataset:/experiment/data -e TOGETHER_API_KEY="your together ai api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment`
 3. To access the container for debug : 
-``docker run -it -v C://Users//mini-KRONOS//OneDrive//Documents//visuo_solution//experiment//data:/experiment/data -e TOGETHER_API_KEY="your wandb api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment /bin/bash``
+``docker run -it -v C://Users//mini-KRONOS//OneDrive//Documents//visuo_solution//experiment//data:/experiment/data -e TOGETHER_API_KEY="your together ai api key" -e WANDB_API_KEY="your wandb api key" q2sql-app-experiment /bin/bash``
 
 
 #### Some screenshots from execution results:
