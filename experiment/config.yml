@@ -9,11 +9,11 @@ model_config:
   model_name: "meta-llama/Meta-Llama-3-70B-Instruct-Turbo"
 
 data_config:
-  table_info_path: "data/dev_tables.json"
-  query2SQL_info_path: "data/dev.json"
+  table_info_path: "data/dev_20240627/dev_tables.json"
+  query2SQL_info_path: "data/dev_20240627/dev.json"
   base_prompt_path: "prompts/base.prompt"
   sys_prompt_path: "prompts/system.prompt"
-  db_info_path: "data/dev_databases/dev_databases"
+  db_info_path: "data/dev_20240627/dev_databases/"
   # debug_num: 50
   # difficulty: "simple"
   difficulty: "moderate"
