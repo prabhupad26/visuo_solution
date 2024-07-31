@@ -14,7 +14,7 @@ data_config:
   base_prompt_path: "prompts/base.prompt"
   sys_prompt_path: "prompts/system.prompt"
   db_info_path: "data/dev_20240627/dev_databases/"
-  # debug_num: 50
+  debug_num: 50
   # difficulty: "simple"
   difficulty: "moderate"
   # difficulty: "challenging"
